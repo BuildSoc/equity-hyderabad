@@ -1,0 +1,5 @@
+,school_count_density_norm,health_count_density_norm,transit_count_density_norm,commercial_count_density_norm,fps_count_density_norm,park_count_density_norm,noise_level_inv_norm,sabha_count_density_norm
+ACCESS,0.2796299828275367,0.6081988130708283,0.11217120410163492,,,,,
+OPPORTUNITY,,,,0.7377045670554273,0.2622954329445727,,,
+ENVIRONMENT,,,,,,0.9790359292845349,0.020964070715465157,
+GOVERNANCE,,,,,,,,1.0

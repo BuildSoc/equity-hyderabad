@@ -1,0 +1,893 @@
+Manuscript
+
+Assessing equitable access in
+X-minute cities through open
+spatial data
+
+EPB: Urban Analytics and City Science
+2025, Vol. 0(0) 1–20
+© The Author(s) 2025
+Article reuse guidelines:
+sagepub.com/journals-permissions
+DOI: 10.1177/23998083251398660
+journals.sagepub.com/home/epb
+
+Vasileios Milias1 , Stefanos Tsigdinos1 , Panagiotis G. Tzouras1  and
+Konstantinos Kepaptsoglou1
+
+Abstract
+There is a growing emphasis on active transport, prompting cities to be redesigned as more
+pedestrian-friendly environments. This shift has fueled interest in proximity-based planning models,
+such as the X-minute city, which are increasingly promoted for their potential public health and
+environmental beneﬁts. However, equity considerations in the assessment of such models are often
+neglected or rely on local datasets that limit broader applicability. In response, we introduce a
+method for evaluating equity under the X-minute city paradigm using open data and established
+accessibility metrics and grounded in the ethical frameworks of egalitarianism and sufﬁcientarianism.
+Applying our method to Athens, Stockholm, and Amsterdam, we assess equitable access to essential
+services and amenities, including supermarkets, playgrounds, and public transport stations. Our
+ﬁndings demonstrate that the choice of ethical framework plays a critical role in shaping equity
+assessments, and that disaggregating by destination type reveals distinct spatial patterns of accessibility, shedding light on both the strengths and limitations of different urban areas. The application of our method also surfaces unexpected insights: Athens—despite its car-dependent
+image—emerges as the most aligned with the X-minute city model, while Stockholm’s decentralized
+form underscores the need to adapt time thresholds to local urban structure and behavior. Overall,
+the method’s reproducibility and use of open-data support cross-city comparisons and contribute
+to the evolving methodological toolkit for evaluating proximity-based planning.
+Keywords
+accessibility, proximity, equity, pedestrians, 15-min city
+
+1
+
+School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens, Zografou, Greece
+
+Corresponding author:
+Vasileios Milias, School of Rural, Surveying and Geoinformatics Engineering, National Technical University of Athens, Iroon
+Politechneiou 9, Zografou 15780, Greece.
+Email: vmilias@mail.ntua.gr
+Data Availability Statement included at the end of the article.
+
+2
+
+EPB: Urban Analytics and City Science 0(0)
+
+Introduction
+Urban and transport planning discourse has increasingly shifted away from car-centric planning
+paradigms toward proximity-based models (Buttner et al., 2024; Handy 2023; Lu and Diab 2023).
+This shift seeks to address pressing concerns related to public health, environmental sustainability,
+and urban resilience. Consequently, there has been heightened interest in urban planning models that
+advocate for compact, mixed-use development, designed to enable residents to access essential
+services and amenities—including parks, public transport, and healthcare—within a short walking
+or cycling distance (Allam et al., 2023; Silva et al., 2023a).
+Among such models, the X-minute city—most notably popularized as the 15-min city—has
+become a prominent example (Logan et al., 2022; Weng et al., 2019). Within the X-minute city
+paradigm, the overarching aim is to ensure that all residents can reach key destinations within an
+X-minute walk or bike ride, in some cases supplemented by public transit options (Moreno et al.,
+2021). Given the widespread promotion of proximity-based planning and the X-minute model in
+policy agendas, various data-oriented methods and tools have been developed to assess its implementation. Typically, such approaches focus on assessing how equally different types of services
+and amenities are accessible in locations within an urban area (Giuffrida et al., 2024; Rojas Rueda
+et al., 2024).
+Nevertheless, an exclusive focus on equal distribution can be limiting, particularly when it fails
+to address whether all residents have sufﬁcient access to the most essential amenities required for
+daily life (Lucas et al., 2016). As a result, the assessment of proximity-based models in terms of their
+implications on spatial equity is often partial, and new initiatives embracing proximity planning
+might fall into the trap of exacerbating inequity.
+Certain studies have addressed equity considerations and provided valuable and in-depth insights
+into equity in accessibility (Van Wee 2022). These contributions have advanced our understanding
+of spatial inequities within urban contexts. However, many of these approaches rely on localized
+datasets, constraining their replicability elsewhere. As such, there remains a need for standardized
+methods that can assess equity within the X-minute city paradigm across a broader range of urban
+settings, including those with limited data availability.
+This work introduces a method for evaluating equity in X-minute cities by leveraging
+open data and established accessibility measures. Building on the framework proposed by
+Lucas et al. (2016), our approach combines the ethical principles of egalitarianism and
+sufﬁcientarianism with cumulative accessibility metrics to assess spatial equity within the
+X-minute city paradigm.
+To demonstrate the method, we apply it to three European cities representing the South, Central,
+and North of the continent—Athens (GR), Amsterdam (NL), and Stockholm (SE)—and evaluate
+equity in accessibility within 5- and 15-min walking distances to essential services and amenities,
+including supermarkets, playgrounds, and public transport stations. The results illustrate how the
+proposed method enables the evaluation of accessibility within the X-minute city framework,
+revealing spatial inequities that differ across destination types and time thresholds. They also
+emphasize the inﬂuence of the underlying ethical assumptions—egalitarianism versus
+sufﬁcientarianism—in shaping how equity is assessed and interpreted.
+Applying the method across different amenities and urban contexts reveals distinct patterns of
+accessibility gaps and potential areas of unmet need. In doing so, the analysis surfaces city-speciﬁc
+dynamics. For instance, Athens, typically seen as car-oriented, demonstrates unexpectedly strong
+potential for proximity-based planning, while Stockholm’s decentralized urban form results in nonlinear changes in equitable access across time thresholds. More broadly, this work aims to
+demonstrate how open and reproducible methods can inform locally relevant, yet broadly comparable, equity evaluations of proximity-based planning models.
+
+Milias et al.
+
+3
+
+The remainder of the paper is structured as follows. Section 2 reviews related work on the
+X-minute city model and equity in local accessibility research, highlighting the existing research
+gap. Section 3 outlines the proposed method, while Section 4 presents the empirical results. Finally,
+Section 5 provides a critical discussion of the ﬁndings, addresses the limitations of the study, and
+offers concluding remarks.
+
+Related work
+The X-minute city
+Since the mid-20th century, urban and transport planning has largely prioritized cars, promoting
+motorized mobility and contributing to degraded public spaces, spatial fragmentation, poor connectivity, and suburban sprawl (Mattioli et al., 2020). In response, cities are gradually addressing the
+negative consequences of this model by tackling both global (e.g., climate change, resilience) and
+local challenges (e.g., trafﬁc congestion, inadequate open space, and low road safety) (Kinigadner
+et al., 2020).
+Amid this shift, the X-minute city, often popularized as the 15-min city and documented by
+Carlos Moreno in 2016 (Moreno et al., 2021), has re-emerged as a promising urban model. Rooted
+in early 20th-century planning principles (Pozoukidou and Chatziyiannaki 2021), it envisions
+residents accessing essential daily needs and amenities such as education, public spaces, and leisure
+within a short travel time (e.g., 5, 10, 15 minutes), typically by walking or cycling (Knap et al.,
+2023). The model gained global visibility in 2020, when Paris Mayor Anne Hidalgo adopted the 15min city as a central pillar of her campaign and began integrating it into the city’s planning strategy
+(Willsher 2020). Since then, numerous other cities have followed, embedding similar principles into
+their urban development plans (Pozoukidou and Chatziyiannaki 2021; Weng et al., 2019).
+The X-minute city marks a shift from mobility- to accessibility-centered planning, aiming to
+redistribute urban functions and reduce motorized travel demand (Gil Sola and Vilhelmson, 2019).
+It emphasizes “ease of reaching desired activities” via active travel, supporting sustainable, decentralized, and polycentric development (Khavarian-Garmsir et al., 2023; Silva et al., 2023b). Its
+implementation relies on four pillars: (a) density, to support viable local services; (b) proximity, to
+ensure spatial coherence; (c) diversity, to encourage land-use mix; and (d) digitalization, to enhance
+service delivery and engagement (Papadopoulos et al., 2023). Walkability, safety, and transport
+infrastructure further shape destination reachability (Guzman et al., 2024; Pozoukidou and
+Chatziyiannaki 2021).
+Moving beyond conceptual appeal requires robust, replicable methods to accurately measure and
+quantify what deﬁnes an “X-minute” neighborhood. Such methods are essential to systematically
+assess spatial equity, identify service gaps, and monitor urban planning progress, particularly in
+diverse and data-scarce contexts. Key measurement variables include the spatial distribution of
+amenities, network-based travel times (rather than simple Euclidean distances), population density,
+people’s needs and preferences, and mode-speciﬁc accessibility (walking, cycling, public transport).
+Several recent studies have advanced the measurement of the X-minute city concept. Moreno
+et al. (2021) proposed a framework centered on six key urban activities—living, working, commerce, healthcare, education, and entertainment—to evaluate proximity and daily access. Walkability has also emerged as a key metric: Rhoads et al. (2023) assessed the 15-min city through
+detailed sidewalk infrastructure analysis, revealing that even pedestrian-friendly cities like Barcelona may fall short when infrastructure quality is considered. Caselli et al. 2022 developed a
+method to explore 15 minute neighborhoods via assessing walking distances and resident population. Applying that method to Parma helped identify the service areas for different population
+groups. Cardoso et al. (2024) developed a walkability index tailored to the context of Amsterdam by
+
+4
+
+EPB: Urban Analytics and City Science 0(0)
+
+investigating the perspectives of urban designers and policy-makers living or working in the city,
+aiming to determine the key factors that deﬁne a walkable street there.
+Emerging technologies further expand assessment capabilities. Ludlow et al. (2023) emphasized
+digital twins integrating remote sensing and AI for real-time accessibility analysis, while Gradinaru
+et al. (2025) explored geospatial data and AI tools to examine the 15-min model in Bucharest.
+Collectively, these advances underscore the critical need to explicitly deﬁne, measure, and evaluate
+X-minute cities towards developing actionable spatial strategies (Rao et al., 2024).
+
+Equity in accessibility
+Despite increasing interest in proximity-based urban models and the X-minute city, equity considerations remain seriously underexplored. Existing assessment methods often reduce equity
+considerations to simplistic measures of equal spatial access, overlooking the complex and
+multifaceted nature of equity that is well established conceptually in urban research. In practice,
+there is often a strong focus on the equal spatial distribution of resources, without adequately
+addressing whether the diverse accessibility needs of different population groups are
+sufﬁciently met.
+In their seminal work, Lucas et al. (2016) argue that the discourse on accessibility and transport
+planning has paid limited attention to socioeconomic dimensions and demographic factors of
+accessibility, thus shaping social exclusion conditions. Appraising distributive justice into accessibility metrics, this work introduces a quantitative approach combining both egalitarian and
+sufﬁcientarian principles to examine access inequity.
+Recent studies have engaged with these concerns. While these contributions have signiﬁcantly
+enriched the scientiﬁc debate, they often employ context-speciﬁc and non-replicable methods. For
+example, studies such as Kelobonye et al. (2020a) introduce reﬁned metrics that account for
+competition effects in service access, improving upon traditional cumulative opportunity models.
+Nonetheless, these approaches frequently rely on detailed local datasets (e.g., household travel
+surveys or administrative records) that may limit their transferability to other urban contexts.
+Likewise, Poorthuis and Zook (2023) remark how 15-min city frameworks, when applied only to
+dense urban cores, risk marginalizing suburban and rural populations that face structurally different
+accessibility issues. These critiques call for methods that are both scalable and equity-centered,
+allowing for comparisons across diverse urban environments and population groups.
+In this line, some recent studies show compelling progress. For instance, Vale and Lopes
+(2023) use pedestrian isochrones and pseudo-Gini coefﬁcients to evaluate intra-urban inequalities in 15-min walkable access across several European cities. Their outcomes indicate
+that while many cities promote compact urban forms, substantial spatial inequities in access
+persist within them. Similarly, Radics et al. (2024) propose a reproducible method for
+mapping access to essential amenities via active travel in Seville, pointing out where
+neighborhoods succeed or fall short of X-minute principles. Yet, even with these critical
+contributions, there is still a lack of reproducible methods that explicitly incorporate equity
+into the measurement of X-minute accessibility.
+As Mouratidis (2024) critically argues, simplistic applications of the X-minute city model can
+overlook factors such as age, mobility impairment or the availability of high-quality destinations
+and therefore neglect inclusive spatial planning. What is more, broader reviews like Rojas-Rueda
+et al. (2024) emphasize that even if the X-minute city has potential public health and sustainability
+beneﬁts, it may also create new forms of exclusion when equity is truly appreciated. Consequently,
+they manifest the need for tailored equity metrics and stakeholder engagement as a component of an
+X-minute planning strategy.
+
+Milias et al.
+
+5
+
+Methodology
+The proposed methodology aims to support the analysis of accessibility in X-minute cities, integrating equity considerations and ensuring replicability across diverse urban contexts. Figure 1
+presents an overview of the analytical pipeline, which comprises two core components: (1) estimating accessibility to different types of destinations from locations across a city within an
+X-minute walking distance and (2) evaluating equity in accessibility combining an egalitarian and a
+sufﬁcientarian perspective. The entire method leverages openly available data applicable to a wide
+range of countries and cities. The components of the pipeline, along with the data sources used, are
+detailed in the following sections. An implementation of the proposed method is available as an
+open-access interactive web tool, CThood, which can be accessed and explored at https://miliasv.
+github.io/CThood/?city=athens.
+
+Accessibility estimation
+In this study, we operate under two key assumptions. First, we assess accessibility using an
+isochrone-based cumulative measure, which counts the number of reachable destinations from a
+given origin based on walking distance. This approach has been widely adopted in prior studies,
+and its simplicity and ease of interpretation have also contributed to its popularity among
+practitioners (Kelobonye et al., 2020b; Milias et al., 2024; O’Sullivan et al., 2000; Willberg et al.,
+2023). Speciﬁcally, we adopt 5 and 15-min walking thresholds to delineate the area individuals
+can reach from each origin-location. We selected these two thresholds to represent different
+interpretations of the X-minute city paradigm. The 15-min threshold was chosen because of its
+growing prominence in research and urban policy, as many cities and studies have adopted it in
+recent years (Weng et al., 2019; Moreno et al., 2021; Willsher 2020; Pozoukidou and
+Chatziyiannaki 2021; Caselli et al. 2022). Recognizing that the selection of any speciﬁc
+threshold is inherently arbitrary, we also include the 5-min threshold to explore its effect on our
+analysis. Furthermore, a 5-min walking distance may more accurately reﬂect the needs of
+particular population groups, such as older adults, who prefer or require shorter walking trips
+(Prins et al., 2014). Second, we assume a uniform walking speed of 1.26 m/s (or 4.54 km/h) across
+the entire population. This value represents the average walking speed across age groups, as
+reported by Schimpl et al. (2011).
+Thus, the accessibility of each destination d from an origin location o is treated as binary and is
+formulated as follows:
+
+1, if walking timeðo, dÞ < 5 ðor 15Þ
+Ao ¼
+(1)
+0, if walking timeðo, dÞ ≥ 5 ðor 15Þ
+The total number of accessible destinations to each origin location is estimated as
+X
+Ao ¼
+Ado
+
+(2)
+
+d2D
+
+where D is the set of all destinations (or a speciﬁc type of destinations) under study.
+
+Equity scores
+For estimating equity-related scores of accessibility we follow a territorial-based approach, considering the locations that cover the areas of analysis, and not a population-based approach.
+Territorial inequality metrics can inform policymaking in contexts where decisions are not driven by
+
+6
+
+Figure 1. Overview of the analytical pipeline.
+
+EPB: Urban Analytics and City Science 0(0)
+
+Milias et al.
+
+7
+
+population demand, such as when aiming at spatial coverage (Vale and Lopes 2023). To estimate
+location-speciﬁc scores and identify inequities in access, we adopt an approach inspired by Lucas
+et al. (2016), applying two equity-based metrics grounded in the ethical principles of egalitarianism
+and sufﬁcientarianism.
+The egalitarian perspective encourages policies and interventions that aim to equalize the level of
+accessibility across the selected locations. In its simplest form, it reﬂects the norm in accessibilityrelated tools. It emphasizes relative differences in access between locations or population groups,
+without necessarily considering whether the level of access is sufﬁcient to meet individuals’ basic
+needs. It may also serve to highlight disparities affecting the least advantaged members of society
+(Martens 2012).
+In contrast, the sufﬁcientarian perspective focuses on ensuring that everyone has access to a
+minimum level of opportunities necessary to meet their basic needs. The primary challenge with this
+approach lies in deﬁning what that minimum threshold should be. It must take into account both the
+speciﬁc needs of individuals (a person-based dimension) and the characteristics of their local
+environment (a context-related dimension), making it difﬁcult to establish an adaptable accepted
+standard (Lucas 2012).
+To estimate an accessibility score grounded in an egalitarian perspective, we utilize the number
+of destinations accessible from each location, reﬂecting the principle that all areas should enjoy
+comparable levels of access. This is realized in two ways. First, we compute type-speciﬁc accessibility scores—for example, for playgrounds, sports facilities, and other types of destinations—
+revealing how equally different types of activities and amenities are distributed across the city.
+Second, we use the Gini index (Gini 1936) and the Lorenz Curve to measure and explore the
+equality in access. The Gini index has been widely used as a statistical measure of inequality and
+receives values from 0 (all locations share an equal number of accessible destinations) to 1
+(maximum inequality). The Lorenz Curve is used to show the cumulative share of locations ordered
+by increasing number of accessible destinations (Brown 1994).
+To estimate accessibility from a sufﬁcientarian perspective, we adopt two complementary
+approaches. In the ﬁrst approach, we deﬁne a score based on whether a location has access to
+at least one place from each predeﬁned category of destination types. The resulting score is
+normalized to range from 0 to 1, where 0 indicates no access to any destination type, and
+1 indicates access to at least one destination of each type. This continuous scale reﬂects the
+degree to which a location lacks sufﬁcient access to essential services and amenities. Rather
+than applying a binary classiﬁcation of sufﬁcient vs insufﬁcient access, we propose a
+severity-based indicator that captures gradations of insufﬁciency. The categories considered
+include a wide range of destinations: playgrounds, public squares, supermarkets (or access to
+all four food-related categories: bakery, greengrocer, butcher, and seafood shop), cultural
+venues, nightlife-related activities, sports facilities, public transport stops (bus, metro, or
+tram), pharmacies, cafes/restaurants, and libraries.
+In the second approach, we apply the sufﬁcientarian principle within thematic domains. We
+deﬁne four thematic groups: mobility, leisure, daily needs, and family/children, each associated with
+a subset of relevant destination types. Speciﬁcally, mobility is deﬁned as access to at least one metro,
+bus, or tram stop; leisure includes access to a nightlife venue, cultural place, library, public square,
+or cafe/restaurant; daily needs refer to access to a pharmacy and a supermarket (or access to all four
+food-related categories: bakery, greengrocer, butcher, and seafood shop); and family/children
+includes access to a playground, kindergarten, and public square.
+We acknowledge that selecting a predeﬁned set of destination types and thematic groups involves
+a degree of arbitrariness. However, this choice is intended to demonstrate the applicability of the
+proposed methodology and its sensitivity to the types of destinations included. Relevant studies
+have also adopted a similar approach for evaluating the X-minute city through the lens of
+
+8
+
+EPB: Urban Analytics and City Science 0(0)
+
+walkability (Giuffrida et al., 2024). In principle, the selection should be guided by local priorities
+and the speciﬁc needs and preferences of residents in each urban context.
+
+Data
+Case-study cities: To illustrate the applicability of our approach, we selected three European capital
+cities—Athens (GR), Amsterdam (NL), and Stockholm (SE)—representing Southern, Western, and
+Northern Europe, respectively (Ofﬁce UNS, 1982). While Amsterdam and Stockholm each span over
+200 km2, the Municipality of Athens covers a much smaller area (∼39 km2), whereas the Athens
+Metropolitan Area is signiﬁcantly larger (∼2,928 km2). To ensure comparability in spatial extent, we
+delineated a study area for Athens by aggregating adjacent municipalities within the Athens Metropolitan Area, resulting in a contiguous urban area of approximately 187.5 km2. This selected extent
+aligns closely with the areas of Amsterdam (∼199.1 km2, excluding large water bodies) and
+Stockholm (∼216.8 km2, excluding large water bodies). These three cities were selected not only for
+their geographic diversity but also because they offer a meaningful basis for comparison. They share
+key characteristics: all are European capitals with dense, mixed-use urban cores. Simultaneously, they
+represent distinct regional and morphological contexts—Athens, representing Southern Europe, is
+highly urbanized and compact; Stockholm, in Northern Europe, is more spatially dispersed and
+interwoven with green and blue infrastructure; while Amsterdam, in Western Europe, is uniquely
+shaped by its extensive canal network and organized land use-transport landscape.
+Origin locations: To ensure complete spatial coverage of the study area, we employ Uber’s
+H3 hexagonal grid system (Uber Technologies Inc. 2018). By setting the resolution level to 10, we
+generate hexagonal cells that span approximately 152 m at their widest point, providing consistent
+and ﬁne-grained spatial units across the entire area of interest. Accessibility is estimated using the
+centroids of the hexagonal cells as origin locations. Cells with zero access to any of the selected
+destinations within a 15-minute walking distance are excluded from the analysis, as they are
+assumed to represent entirely rural areas, often corresponding to forests or water bodies. Removing
+these cells allows for a more meaningful comparison between the built-up areas of the cities,
+focusing the analysis on locations where human presence or development is at least plausible.
+Pedestrian street network: The street network data originate from OpenStreetMap (OSM)
+(OpenStreetMap Contributors 2021), an open-source user-generated mapping platform widely used in
+studies focused on pedestrian accessibility (Al Shammas et al., 2023; Cohen and Dalyot 2021; Logan
+et al., 2019). The OSM street network has been documented to exceed 40% completeness across
+countries worldwide (Barrington-Leigh and Millard-Ball 2017), enabling the replication of our approach in cities beyond those analyzed in this study. OSM pedestrian street network includes all types
+of streets except those designated exclusively for motorized trafﬁc, such as motorways, which are not
+intended for pedestrian use. We extracted the pedestrian street network, using OSMnx (Boeing 2017),
+a Python-based library designed for retrieving and analyzing street network data from OSM. By
+setting network type = “walk,” we collect footpaths and pedestrian-designated streets while automatically excluding segments tagged as unsuitable for walking, similar to previous works (Milias and
+Psyllidis 2022). To collected street network data we ﬁrst expanded the boundaries of the areas of
+analysis using a buffer of 1 km to avoid the boundary effects. Data were collected in April 2025.
+Destinations: The destinations included in our work are collected from OSM and span a diverse
+range of types including playgrounds, public squares, supermarkets, grocery stores (i.e., greengrocer,
+bakery, butcher, seafood), cultural venues (i.e., museums, galleries, art centers), nightlife-related
+activities (i.e., pubs, bars, nightclubs, music venues, cinemas, and theaters), sports facilities, bus stops,
+metro and tram stations, pharmacies, cafes/restaurants, and libraries. These categories were selected to
+capture a broad spectrum of everyday needs and activities. The selection of destination types can be
+customized to accommodate different contexts. The POI data were collected in April 2025.
+
+Milias et al.
+
+9
+
+Results
+This section presents results from applying our method to Athens, Amsterdam, and Stockholm,
+examining equity in access from two perspectives: the egalitarian, which evaluates how evenly
+destinations are accessible within 5- and 15-min walks; and the sufﬁcientarian, which assesses
+whether basic access needs are met in each city.
+
+Egalitarian-based of accessibility
+Overall, Athens consistently exhibits higher levels of equality in access compared to Amsterdam
+and Stockholm across all destination types and walking distances, with the exception of access to
+cultural facilities, where Amsterdam performs better (Table 1). When aggregating all destination
+types, Athens shows markedly lower Gini index values—by approximately 0.20—relative to the
+other two cities. Speciﬁcally, at a 5-min walking distance, the Gini index is 0.46 in Athens,
+Table 1. Index of egalitarianism - Gini.
+5-min walk
+
+15-min walk
+
+Country place ATH AMS STO ATH AMS STO Short interpretation
+Playground
+
+0.62 0.68 0.74 0.37 0.51 0.52 ATH shows the most equal access, while STO is the
+most unequal.
+
+Public square
+
+0.81 0.94 0.96 0.55 0.80 0.77 All cities show inequality, especially in the 5-min walk.
+
+Supermarket
+
+0.68 0.88 0.90 0.50 0.72 0.71 Supermarket access is most equal in ATH; AMS/STO
+are similar.
+
+Grocery store 0.68 0.88 0.94 0.51 0.74 0.84 Grocery store access equality is best in ATH and
+worst in STO.
+Culture
+
+0.90 0.80 0.89 0.80 0.71 0.82 Culture access is most equal in AMS.
+
+Nightlife
+
+0.88 0.92 0.95 0.76 0.88 0.91 Nightlife is unequally distributed everywhere; ATH is
+slightly fairer.
+
+Sport
+
+0.62 0.75 0.74 0.32 0.51 0.52 Access to sports is much more balanced in ATH.
+
+Metro
+
+0.92 0.98 0.93 0.68 0.87 0.71 Metro access is highly unequal, especially in AMS and
+STO.
+
+Bus/Tram
+
+0.40 0.71 0.67 0.29 0.54 0.51 Bus/tram access is relatively equal in ATH; more
+skewed in AMS/STO.
+
+Pharmacy
+
+0.66 0.91 0.93 0.52 0.69 0.76 Equality of pharmacies access highly improves for the
+150 walk.
+
+Cafe/Rest
+
+0.74 0.87 0.86 0.62 0.82 0.80 Dining options are relatively unequal in all cities.
+
+Library
+
+0.95 0.96 0.97 0.75 0.75 0.79 Libraries are unequally distributed overall, especially
+in 50 walks.
+
+All
+0.46 0.66 0.70 0.37 0.57 0.57 ATH consistently shows lower Gini values, then AMS,
+(normalized)
+then STO.
+
+10
+
+EPB: Urban Analytics and City Science 0(0)
+
+compared to 0.66 in Amsterdam and 0.70 in Stockholm. Similarly, within a 15-min range, Athens
+records a value of 0.37, while both Amsterdam and Stockholm remain at 0.57.
+Examining accessibility per destination type reveals certain similarities across the three cities.
+For example, playgrounds, bus/train stations, and sports facilities consistently exhibit the lowest
+Gini indices, indicating comparatively more equal access than other destination types in all cities.
+Similarly, supermarkets and cafes/restaurants show moderate levels of inequality. However, notable
+differences also emerge. Within the 5-min walking distance, access to pharmacies in Athens is
+considerably more equal, with a Gini index of 0.66, compared to signiﬁcantly higher values of
+0.91 and 0.93 in Amsterdam and Stockholm, respectively. Conversely, cultural venues show
+relatively high inequality in Athens and Stockholm, with Gini indices near 0.90 at the 5-min
+threshold and around 0.80 at the 15-min threshold. Amsterdam, by contrast, exhibits approximately
+0.10 lower Gini values for cultural venues, reﬂecting greater equality in access.
+To compare the impact of destination type on our results, Figure 2 displays the estimated Lorenz
+curves for each destination type across the three case-study cities. The horizontal dispersion of the
+curves reﬂects variations in access equality among destination types: the greater the separation, the
+more pronounced the disparities. In contrast, tighter clustering of the curves indicates more uniform
+accessibility scores across different types of destinations. In Athens, particularly at the 5-min
+threshold, the curves exhibit notable divergence, highlighting substantial inequalities in access
+across different types of destinations. For Amsterdam and Stockholm, the curves are more closely
+aligned, suggesting comparatively balanced access.
+Examining the impact of the time threshold reveals that access inequality is generally more
+pronounced within the 5-min walkshed than within the 15-min walkshed, particularly for certain
+destination types. For instance, Gini indices for playgrounds range from 0.62 to 0.74 at the 5-min
+threshold but improve to 0.37–0.52 at 15 minutes. Similar patterns are observed for public squares
+(0.81–0.96 vs 0.55–0.80), metro stations (0.92–0.98 vs 0.68–0.87), and sports facilities (0.62–
+0.74 vs 0.32–0.52). The magnitude of improvement varies not only by destination type but also
+across cities. Stockholm, for example, often demonstrates substantial reductions in inequality
+when moving from a 5- to a 15-min threshold, with Gini indices dropping by up to 20% in several
+cases—particularly for sports, grocery stores, and public squares. In contrast, Amsterdam shows
+more modest improvements, suggesting less sensitivity to the walking time threshold.
+
+Sufﬁcientarian-based accessibility
+Figure 3 displays the distribution of locations according to their sufﬁcientarian-based accessibility
+scores for all three cities. As outlined in the Methodology section, this score reﬂects the extent to
+which a location has access to at least one destination of each selected type. Additionally, the spatial
+distribution of these scores is presented in Figure 4, while Table 2 summarizes the percentage of
+locations with access to at least one destination from each type or thematic group, by city and
+walking distance threshold.
+As shown in Figure 3, in most cases, the majority of locations do not meet the selected access
+criteria. Athens, however, has many locations with high accessibility scores when the walking time
+threshold is set to 15 minutes. Notably, 32.4% of locations in Athens achieve the maximum
+sufﬁcientarian accessibility score—indicating access to at least one destination of each type within a
+15-minute walk—substantially outperforming Amsterdam and Stockholm.
+The distribution of sufﬁcientarian accessibility scores in Amsterdam and Stockholm differs from
+that of Athens. At the 5-min walking threshold, most locations in both cities fall into the lowest
+range of the score scale—close to zero. This pattern is also evident in the spatial distribution
+(Figure 4), where high-scoring areas (>0.8) tend to be limited to the commercial city-centers of the
+
+Milias et al.
+
+11
+
+Figure 2. Lorenz curves per destination type and city.
+
+two cities. In contrast, Athens shows a broader spread of high sufﬁciency scores, with several
+neighborhoods adjacent to the historic center achieving values above 0.8.
+As expected from a sufﬁcientarian perspective, extending the walking threshold to 15 minutes,
+improves accessibility in all three cities (see Figure 4). In Athens, the majority of locations achieve
+
+12
+
+EPB: Urban Analytics and City Science 0(0)
+
+Figure 3. Histogram of sufﬁcientarianism scores across locations for each city.
+
+scores higher than 0.8. Amsterdam also shows a substantial expansion of well-served areas, while in
+Stockholm, new clusters of high accessibility emerge in peripheral zones—indicating the formation
+of satellite 15-min neighborhoods. When examining the percentage of locations with access to at
+least one destination per type, we observe a difference between the 5- and 15-min walking
+thresholds across all three cities. In Athens, only 0.63% of locations satisfy all access criteria within
+a 5-min walk. This ﬁgure rises to 32.4% at the 15-min threshold. Similar trends are observed in
+Amsterdam (0.11% vs 17.74%) and Stockholm (0.32% vs 10.24%), underscoring the critical role of
+walking time in shaping how access to essential destinations is measured.
+The results of the theme-based sufﬁcientarian analysis are summarized in Table 2, covering four
+thematic groups: mobility, leisure, family/children, and daily needs. The percentage of locations
+meeting the sufﬁcientarian criteria varies signiﬁcantly depending on the theme analyzed. This
+thematic sensitivity is consistent across all three cities, with the ranking of scores following the same
+order: leisure (lowest), followed by family/children, daily needs, and mobility (highest).
+In terms of absolute values, notable differences emerge between the cities. For example, regarding the mobility theme, 90.12% of locations in Athens have access to at least one relevant
+
+Milias et al.
+
+13
+
+Figure 4. Spatial distribution of sufﬁcientarian accessibility scores across hexagonal grid cells for each city.
+
+14
+
+EPB: Urban Analytics and City Science 0(0)
+
+Table 2. Percentage of locations with access based on different access criteria per city, and walking distance
+threshold. (%).
+5-min walk
+Category
+
+Description of access criteria
+
+ATH
+
+All
+Mobility
+Leisure
+Fam./
+Child
+Daily
+needs
+
+At least one of each destination type
+Metro, bus, or tram station
+Nightlife, culture, library, public square, cafe/rest
+Playground, kindergarten, public square
+
+0.63 0.11 0.32 32.4 17.74 10.24
+90.12 48.40 56.68 98.49 83.84 91.75
+1.65 0.45 0.79 32.49 19.19 11.26
+6.57 0.64 1.27 70.21 18.56 24.74
+
+Pharmacy and a supermarket (can also be replaced by 42.39
+bakery, greengrocer, butcher, and seafood.)
+
+AMS
+
+15-min walk
+
+6.64
+
+STO
+
+ATH
+
+AMS
+
+STO
+
+6.24 89.33 43.24 37.97
+
+destination within a 5-min walk, whereas the corresponding ﬁgures for Amsterdam and Stockholm
+are signiﬁcantly lower, at approximately 50%. When extending the walking time threshold to
+15 minutes, these differences largely diminish, with all three cities reaching access levels close
+to 90%.
+Insufﬁcient access is most evident when looking at other themes, and it is most pronounced for
+leisure-related destinations (e.g., nightlife venues, cultural facilities, libraries) and family-oriented
+spaces (e.g., playgrounds, public squares). Particularly striking is the limited access to daily needs:
+in Amsterdam and Stockholm, only about 6% of locations have a pharmacy and a supermarket
+within a 5-min walk. Even with a 15-min threshold, these shares remain below 50%. In contrast,
+Athens performs considerably better, with 89.33% of neighborhoods having sufﬁcient access to
+destinations related to the theme of Daily needs.
+
+Discussion and concluding remarks
+Egalitarianism and sufﬁcientarianism
+Overall, accessibility scores from the egalitarian approach align with and complement those from
+the sufﬁcientarian approach. For instance, Athens exhibits both the highest equality in accessibility
+and the highest percentage of locations meeting the selected sufﬁcientarian conditions. This
+suggests that, compared to Amsterdam and Stockholm, a greater proportion of locations in Athens
+enjoy comparable access to a diverse range of destinations while meeting a minimum threshold of
+accessibility.
+Nevertheless, comparing the two approaches within Athens reveals that while access inequality is
+relatively low within a 5-min walk (Gini index: 0.46), only 0.63% of locations offer sufﬁcient access to
+at least one destination of each type—indicating limited service coverage. This aligns with Vale and
+Lopes (2023), who noted that despite compact urban forms, signiﬁcant spatial inequalities in access
+remain. Similar patterns emerge in Amsterdam and Stockholm: within a 15-min walk, access equality
+remains moderate (Gini index around 0.57), yet the proportion of locations with sufﬁcient access is
+relatively low, at 17.74% and 10.24%, respectively. These ﬁndings suggest that relying on a single
+approach—either egalitarian or sufﬁcientarian—could underestimate or overlook important deﬁciencies in the X-minute city model’s ability to support both equal and sufﬁcient access.
+In all three cities, sufﬁcientarian scores proved highly sensitive to the inclusion of speciﬁc
+destination types. For example, the share of locations with sufﬁcient access to mobility versus
+leisure destinations differs by more than 48% across cases. In most cases, locations across all three
+cities failed to meet the sufﬁcientarian criteria—especially for leisure and family or child-related
+
+Milias et al.
+
+15
+
+destination types. While our thematic categorization is to some extent arbitrary, the pronounced
+differences highlight the importance of developing theme-based scores that better reﬂect citizens’
+needs. This is essential, as different areas may demonstrate unique strengths and deﬁcits that only
+become meaningful when interpreted in the context of local preferences and demand.
+
+Time threshold
+The impact of shifting the temporal threshold from 5 to 15 minutes varies signiﬁcantly across the
+three cities, indicating differing levels of sensitivity. In some cases, such as Amsterdam and Athens,
+this shift results in a noticeable extension of access scores from central areas to surrounding
+neighborhoods, albeit with differing magnitudes. In contrast, Stockholm presents a different spatial
+pattern, with the emergence of distinct satellite centers rather than a gradual outward expansion.
+This observation is consistent with the ﬁndings of Cats et al. (2015), who highlighted how
+Stockholm’s regional planning has prioritized the development of satellite towns along rapid public
+transport corridors. This observation is also conﬁrmed in the recent study of Costa et al. (2025) that
+clustered Stockholm as a ”Multimodal Metropolises,” while Amsterdam belongs to an elite group of
+cycling cities. Therefore, the change in equitable access between the two time thresholds is neither
+uniform nor linear. The absence of a generalized spatial pattern makes it difﬁcult the development of
+a conceptual model or method for evaluating cities based on a limited set of characteristics. The
+above ﬁndings underline the importance of choosing an informed time threshold that aligns with the
+mobility behaviors and urban form of each city.
+
+The cities
+A notable ﬁnding of this study is that, despite often being characterized as a car-dependent city,
+Athens demonstrates the strongest potential for realizing the 5- or 15-min city model. It performs
+best under both egalitarian and sufﬁcientarian frameworks and across nearly all destination types,
+with the exception of cultural venues.
+The compact urban form, high density, and mixed land use of Athens contribute signiﬁcantly to
+its strong performance, setting it apart from the other two cities. It is important to note that this study
+assesses territorial-based accessibility without accounting for population demand. As a result,
+accessibility is evaluated in terms of spatial coverage, which tends to penalize sparsely built-up
+areas—such as those commonly found in Stockholm—with lower accessibility scores. Following
+Athens, Amsterdam ranks second overall and Stockholm third, despite the latter demonstrating
+comparatively better access to mobility-related services.
+It is also important to note that Amsterdam’s street network strongly supports active mobility,
+particularly walking and cycling. In contrast, Athens lacks high-quality pedestrian infrastructure,
+especially in peripheral areas. This may help explain why the commercial city center of Athens
+reports the lowest walkability score among the three cities, falling behind both Amsterdam and
+Stockholm (Bartzokas-Tsiompras et al., 2023). The discrepancy between our proximity-based
+accessibility scores and walkability outcomes suggests that even when the distribution and density
+of diverse destinations align with the X-minute city model, inadequate walking infrastructure can
+hinder actual on-foot accessibility.
+Interestingly, walking in Athens still accounts for approximately 12–16% of all trips, while the
+average walking trip distances range from 500 m to 2.8 km (Andrinopoulou and Tzouras 2025).
+This indicates a behavioral adaptation to the local urban fabric. Pedestrians have developed ways to
+navigate and cope with challenging conditions in Athens (Karakitsou et al., 2025). In comparison,
+Amsterdam records walking trip shares of over 25% (De Haas and Hamersma 2019), while
+Stockholm’s combined walking and cycling mode share reaches around 22.1% (Kenworthy 2020).
+
+16
+
+EPB: Urban Analytics and City Science 0(0)
+
+Limitations and future directions
+The proposed method centers on three key components, each of which presents certain limitations
+and opportunities for further reﬁnement: (1) the measurement of accessibility, (2) the selection of
+destination types, and (3) the measurement of equity.
+First, accessibility can be measured using various methods, each with speciﬁc strengths and
+limitations—including gravity-based, person-based, and utility-based measures (Handy and
+Niemeier 1997; Levinson and Wu 2020). Depending on the context, different measures may be
+more appropriate, and the proposed method can be adapted accordingly. More importantly,
+evaluating pedestrian access requires considering additional factors that shape the walking experience. These include subjective factors such as perceived safety, comfort, and attractiveness, as
+well as objective factors like elevation and temperature (Alfonzo 2005). Incorporating such elements can lead not only to a more nuanced understanding of access inequities but also a fairer city
+comparison. For instance, Athens’s hilly terrain contrasts sharply with the ﬂat landscape of
+Amsterdam. While accounting for elevation may have little effect for Amsterdam, it can significantly affect walking speed and willingness to walk in Athens, particularly for older adults or those
+with mobility limitations.
+Second, the selection and grouping of destinations ought to consider the needs and preferences of
+the population groups within the city under study. As Mouratidis (2024) emphasizes, the deﬁnition
+of a sufﬁcient 15-min city may vary signiﬁcantly across social groups. Incorporating an initial step
+in the proposed method to capture the residents’ needs and preferences regarding essential destinations could enable a more informed, potentially weighted, selection of destinations. This, in turn,
+could better reﬂect the extent to which the city addresses its population’s diverse needs within the
+X-minute city framework. We also acknowledge that this study excluded certain key destinations,
+such as primary schools, kindergartens, and workplaces, which play a fundamental role in everyday
+accessibility. Future extensions of this work could incorporate these destination types to provide a
+more comprehensive understanding of the X-minute city.
+Third, this study employed the Gini index and Lorenz curve to evaluate equality in accessibility,
+combining an egalitarian and sufﬁcientarian lens to assess spatial equity. While these measures are
+widely used, they have also faced criticism for certain limitations in capturing the full complexity of
+equity in urban contexts (Karner et al., 2024). The proposed framework could be expanded to
+incorporate alternative equity metrics aligned with different ethical theories, including utilitarian,
+sufﬁcientarian, and egalitarian approaches. In addition, our method focused on a territorial-based
+analysis and did not account for population-based inequities. However, it can be further extended by
+integrating population datasets—either from local sources or global gridded data—to better capture
+how accessibility varies across different population groups.
+This work offers a reproducible, open-data-based method for evaluating the potential of cities to
+support the X-minute model. By allowing comparisons across diverse urban contexts while remaining adaptable to locally speciﬁc data and needs, the proposed method contributes to a growing
+methodological toolkit for proximity-based planning. Beyond providing a comparative framework,
+our approach aims to spark a broader conversation about the role of open data in shaping equitable,
+proximity-based planning.
+ORCID iDs
+Vasileios Milias  https://orcid.org/0000-0003-1022-4465
+Stefanos Tsigdinos  https://orcid.org/0000-0002-6163-6489
+Panagiotis G. Tzouras  https://orcid.org/0000-0001-7944-9094
+
+Milias et al.
+
+17
+
+Funding
+The authors received no ﬁnancial support for the research, authorship, and/or publication of this article.
+
+Declaration of conﬂicting interests
+The authors declared no potential conﬂicts of interest with respect to the research, authorship, and/or publication of this article.
+
+Data Availability Statement
+The datasets generated and analyzed during this study are openly available on the Zenodo platform at
+https://doi.org/10.5281/zenodo.10656787. Part of the results can also be interactively explored
+through the open-access web platform CThood at https://miliasv.github.io/CThood/?city=athens
+(Milias, 2025).
+
+References
+Al Shammas T, Gullon P, Klein O, et al. (2023) Development of a GIS-Based walking route planner with
+integrated comfort walkability parameters. Computers, Environment and Urban Systems 103: 101981.
+Alfonzo MA (2005) To walk or not to walk? The hierarchy of walking needs. Environment and Behavior 37(6):
+808–836.
+Allam Z, Moreno C, Chabaud D, et al. (2023) Proximitybased planning and the “15-minute city”: a sustainable
+model for the city of the future The Palgrave Handbook of Global Sustainability. Springer, 1523–1542.
+Andrinopoulou E and Tzouras PG (2025) Applying spectral clustering to decode mobility patterns in Athens,
+Greece. Applied Sciences 15(7): 3419.
+Barrington-Leigh C and Millard-Ball A (2017) The worlds usergenerated road map is more than 80% complete.
+PLoS One 12(8): e0180698.
+Bartzokas-Tsiompras A, Bakogiannis E and Nikitas A (2023) Global microscale walkability ratings and
+rankings: a novel composite indicator for 59 European city centres. Journal of Transport Geography 111:
+103645.
+Boeing G (2017) Osmnx: new methods for acquiring, constructing, analyzing, and visualizing complex street
+networks. Computers, Environment and Urban Systems 65: 126–139.
+Brown MC (1994) Using gini-style indices to evaluate the spatial patterns of health practitioners: theoretical
+CONSIDER- ations and AN application based on alberta data. Social Science & Medicine 38(9):
+1243–1256.
+Buttner B, Silva C, Merlin L, et al. (2024) Just around the€corner: accessibility by proximity in the 15-minute
+city. Journal of Urban Mobility 6: 100095.
+Cardoso M, Milias V and Harteveld M (2024) Developing a cityspeciﬁc walkability index through a participatory approach AGILE. AGILE: GIScience Series 5: 1–12.
+Caselli B, Carra M, Rossetti S, et al. (2022) Exploring the 15-minute neighbourhoods. an evaluation
+based on the walkability performance to public facilities. Transportation Research Procedia 60:
+346–353.
+Cats O, Wang Q and Zhao Y (2015) Identiﬁcation and classiﬁcation of public transport activity centres in
+Stockholm using passenger ﬂows data. Journal of Transport Geography 48: 10–22.
+Cohen A and Dalyot S (2021) Route planning for blind pedestrians using OpenStreetMap. Environment and
+Planning B: Urban Analytics and City Science 48(6): 1511–1526.
+Costa M, Valenc¸a G, Adorean C, et al. (2025) The relation between circuity and mobility cultures: a study of
+41 European cities. Cities 166: 106087.
+De Haas M and Hamersma M (2019) Walking facts In: Technical report, Netherlands Institute of Transport
+Policy Analysis, the Hague. Ministry of Infrastructure and Water Management.
+
+18
+
+EPB: Urban Analytics and City Science 0(0)
+
+Gil Sola A and Vilhelmson B (2019) Negotiating proximity in´ sustainable urban planning: a Swedish case.
+Sustainability 11: 31.
+Gini C (1936) General series. In: On the Measure of Concentration with Special Reference to Income and
+Statistics. Colorado College Publication, Vol. 208.
+Giuffrida N, Molter A, Pilla F, et al. (2024) On the equity of the x-minute city from the perspective of
+walkability. Transport Engineer 16: 100244.
+Gradinaru AP, Badea AC, Ene A, et al. (2025) Theintegration of geospatial analyses based on ai in gis in the
+context of the “15-minute city” concept. E3S Web of Conferences 608: 05008.
+Guzman LA, Oviedo D and Cantillo-Garcia VA (2024) Is proximity enough? A critical analysis of a 15-minute
+city considering individual perceptions. Cities 148: 104882.
+Handy S (2023) Shifting Gears: Toward a New Way of Thinking About Transportation. MIT Press.
+Handy SL and Niemeier DA (1997) Measuring accessibility: an exploration of issues and alternatives. Environment and Planning A: Economy and Space 29(7): 1175–1194.
+Karakitsou E, Tzouras PG, Chatiziioannou I, et al. (2025) A ﬁrst investigation of perceived safety patterns in
+Athens, Greece. Transportation Research Procedia 90: 210–217.
+Karner A, Pereira RH and Farber S (2024) Advances and pitfalls in measuring transportation equity.
+Transportation 52: 1–29.
+Kelobonye K, Zhou H, McCarney G, et al. (2020a) Measuring the accessibility and spatial equity of urban
+services under competition using the cumulative opportunities measure. Journal of Transport Geography
+85: 102706.
+Kelobonye K, Zhou H, McCarney G, et al. (2020b) Measuring the accessibility and spatial equity of urban
+services under competition using the cumulative opportunities measure. Journal of Transport Geography
+85: 102706.
+Kenworthy JR (2020) Sustainable mobility in ten Swedish cities. In: Technical Report. National Centre for
+Research and Education on Public Transport.
+Khavarian-Garmsir AR, Shariﬁ A and Sadeghi A (2023) The 15-minute city: urban planning and design efforts
+toward creating sustainable neighborhoods. Cities 132: 104101.
+Kinigadner J, Buttner B, Wulfhorst G, et al. (2020) Planning for low carbon mobility: impacts of
+transport interventions and location on carbon-based accessibility. Journal of Transport Geography 87: 102797.
+Knap E, Ulak MB, Geurs KT, et al. (2023) A composite x-minute city cycling accessibility metric and its role in
+assessing spatial and socioeconomic inequalities – a case study in Utrecht, the Netherlands. Journal of
+Urban Mobility Mobility 3: 100043.
+Levinson D and Wu H (2020) Towards a general theory of access. Journal of Transport and Land Use 13(1):
+129–158.
+Logan TM, Williams TG, Nisbet AJ, et al. (2019) Evaluating urban accessibility: leveraging open-source data
+and analytics to overcome existing limitations. Environment and Planning B: Urban Analytics and City
+Science 46(5): 897–913.
+Logan T, Hobbs M, Conrow L, et al. (2022) The x-minute city: measuring the 10, 15, 20-minute city and an
+evaluation of its use for sustainable urban design. Cities 131: 103924.
+Lu M and Diab E (2023) Understanding the determinants of xminute city policies: a review of the north
+American and Australian cities’ planning documents. Journal of Urban Mobility 3: 100040.
+Lucas K (2012) Transport and social exclusion: where are we now? Transport Policy 20: 105–113.
+Lucas K, Van Wee B and Maat K (2016) A method to evaluate equitable accessibility: combining ethical
+theories and accessibility-based approaches. Transportation 43(3): 473–490.
+Ludlow D, Khan Z, Chrysoulakis N, et al. (2023) Towards digital-twin solutions for the 15 minute city
+2023 Joint Urban Remote Sensing Event (JURSE). IEEE, 1–4.
+Martens K (2012) Justice in transport as justice in accessibility: applying Walzer’s ’Spheres of Justice’ to the
+transport sector. Transportation 39(6): 1035–1053.
+
+Milias et al.
+
+19
+
+Mattioli G, Roberts C, Steinberger JK, et al. (2020) The political economy of car dependence: a systems of
+provision approach. Energy Research & Social Science 66: 101486.
+Milias V and Psyllidis A (2022) Measuring spatial age segregation through the lens of co-accessibility to urban
+activities. Computers, Environment and Urban Systems 95: 101829.
+Milias V, Psyllidis A and Bozzon A (2024) Bridging or separating? Co-accessibility as a measure of potential
+placebased encounters. Journal of Transport Geography 121: 104027.
+Milias V, (2025). Open Spatial Data on 5- and 15-Minute Walking Accessibility to Urban Amenities in Athens,
+Amsterdam, and Stockholm [Data set]. Zenodo. https://doi.org/10.5281/zenodo.17564588
+Moreno C, Allam Z, Chabaud D, et al. (2021) Introducing the “15-minute city”: sustainability, resilience and
+place identity in future post-pandemic cities. Smart cities 4(1): 93–111.
+Mouratidis K (2024) Time to challenge the 15-minute city: seven pitfalls for sustainability, equity, livability,
+and spatial analysis. Cities 153: 105274.
+Ofﬁce UNS (1982) Standard country or area codes for statistical use. UN, Vol. 49.
+OpenStreetMap Contributors (2021) Planet dump. retrieved from: https://www.openstreetmap.org
+O’Sullivan D, Morrison A and Shearer J (2000) Using desktop gis for the investigation of accessibility by
+public transport: an isochrone approach. International Journal of Geographical Information Science
+14(1): 85–104.
+Papadopoulos E, Sdoukopoulos A and Politis I (2023) Measuring compliance with the 15-minute city concept:
+state-of-the-art, major components and further requirements. Sustainable Cities and Society 99: 104875.
+Poorthuis A and Zook M (2023) Moving the 15-minute city beyond the urban core: the role of accessibility and
+public transport in the netherlands. Journal of Transport Geography 110: 103629.
+Pozoukidou G and Chatziyiannaki Z (2021) 15-minute city: decomposing the new urban planning eutopia.
+Sustainability 13(2): 928.
+Prins RG, Pierik F, Etman A, et al. (2014) How many walking and cycling trips made by elderly are beyond
+commonly used buffer sizes: results from a gps study. Health & Place 27: 127–133.
+Radics M, Christidis P, Alonso B, et al. (2024) The x-minute city: analysing accessibility to essential daily
+destinations by active mobility in Seville. Land 13(10): 1656.
+Rao F, Kong Y, Ng KH, et al. (2024) Unravelling the spatial arrangement of the 15-minute city: a comparative
+study of shanghai, Melbourne, and Portland. Planning Theory & Practice 25(2): 184–206.
+Rhoads D, Sole-Ribalta A and Borge-Holthoefer J (2023) The inclusive 15-minute city: walkability analysis
+with sidewalk networks. Computers, Environment and Urban Systems 100: 101936.
+Rojas-Rueda D, Norberciak M and Morales-Zamora E (2024) Advancing health equity through 15-min cities
+and chronourbanism. Journal of Urban Health: Bulletin of the New York Academy of Medicine 101(3):
+483–496.
+Schimpl M, Moore C, Lederer C, et al. (2011) Association between walking speed and age in healthy, freeliving individuals using Mobile accelerometry—A cross-sectional study. PLoS One 6(8): e23299.
+Silva C, Buttner B, Seisenberger S, et al. (2023a) Proximity-centred accessibility—a conceptual debate involving experts and planning practitioners. Journal of Urban Mobility 4: 100060.
+Silva C, Buttner B, Seisenberger S, et al. (2023b) Proximity-centred accessibility—A conceptual debate
+involving experts and planning practitioners. Journal of Urban Mobility 4: 100060.
+Uber Technologies Inc (2018) H3: hexagonal hierarchical geospatial indexing system In: Technical report.
+Uber Technologies Inc. https://h3geo.org
+Vale D and Lopes AS (2023) Accessibility inequality across Europe: a comparison of 15-minute pedestrian
+accessibility in cities with 100,000 or more inhabitants. NPJ Urban Sustainability 3(1): 55.
+Van Wee B (2022) Accessibility and equity: a conceptual framework and research agenda. Journal of Transport
+Geography 104: 103421.
+Weng M, Ding N, Li J, et al. (2019) The 15-minute walkable neighborhoods: measurement, social inequalities
+and implications for building healthy communities in urban China. Journal of Transport & Health 13:
+259–273.
+
+20
+
+EPB: Urban Analytics and City Science 0(0)
+
+Willberg E, Fink C and Toivonen T (2023) The 15-minute city for all? measuring individual and temporal
+variations in walking accessibility. Journal of Transport Geography 106: 103521.
+Willsher K (2020) Paris mayor unveils ‘15-minute city’plan in reelection campaign. The Guardian 7: 2020.
+
+Author biographies
+Dr. Vasileios Milias holds a PhD in Urban Analytics from TU Delft and is a Postdoctoral Researcher at the National Technical University of Athens (NTUA). His research focuses on computational methods and tools for analyzing walkability, accessibility, and neighborhood-scale urban
+design, leveraging geospatial data, artiﬁcial intelligence, and open data. He has been involved in a
+variety of research projects related to sustainable mobility, equitable accessibility, and smart cities,
+and developed digital tools such as CThood, CTstreets, and CTwalk, aiming to communicate his
+research ﬁndings to a wider audience through web-based interactive maps.
+Dr. Stefanos Tsigdinos is a Surveyor and Geoinformatics Engineer. He holds a Master’s degree in
+Urban and Rural Planning (NTUA). His PhD thesis falls within the ﬁelds of Transport Planning and
+Policy. As a researcher, he has participated in numerous research projects related to sustainable
+mobility and integrated urban and transport planning. He is currently working at NTUA as an
+Ajdunct Lectuer and a Postdoctoral Researcher with his research interests focusing on transport
+geography, transport equity, regional development, transport policies and economics and issues of
+future mobility.
+Dr. Panagiotis G. Tzouras is a Researcher and Transport Planner at the National Technical
+University of Athens. He serves as an Adjunct Lecturer in the University of West Attica. He holds a
+Diploma in Rural, Surveying, and Geoinformatics Engineering, an MSc in Civil Engineering with a
+specialization in Transport and Planning, and a PhD. His research focuses on issues related to the
+modeling of sustainable mobility, aiming at the development of methodologies and tools that
+support the daily practice of transport planning. He has participated in research projects as well as in
+dozens of studies related to these topics in Greece and Europe. Over the past ﬁve years, he has
+published more than 25 articles in scientiﬁc journals and has participated in numerous international
+scientiﬁc conferences to disseminate the results of his research.
+Dr. Konstantinos Kepaptsoglou is a Professor at the School of Rural, Surveying and Geoinformatics Engineering of the National Technical University of Athens (NTUA), specializing in
+Transportation Systems Planning. He holds a Diploma in Civil Engineering from NTUA (1999), an
+M.Sc. in Transportation Engineering from Purdue University, USA (2000), and a Ph.D. in
+Transportation Engineering from NTUA (2009). He has over twenty years of research and professional experience in the ﬁelds of transportation systems planning, urban transit systems, emobility, road infrastructure management, emergency transportation planning, and operations
+research, both in Greece and abroad.
+
+

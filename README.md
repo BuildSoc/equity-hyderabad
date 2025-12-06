@@ -10,7 +10,7 @@ The UEI Platform is a comprehensive tool to measure and visualize spatial equity
 - **Spatial Analytics**: Moran's I for spatial autocorrelation, Hotspot detection, and Ward Typology clustering (PCA + KMeans).
 
 ## System Architecture
-```mermaid
+
 graph TD
     Data[Spatial Data (GeoJSON/CSV)] --> Engine[Data Engine (Python)]
     Engine --> |Process & Score| DB[(PostgreSQL + PostGIS)]

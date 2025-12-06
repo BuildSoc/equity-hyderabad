@@ -12,9 +12,9 @@ The UEI Platform is a comprehensive tool to measure and visualize spatial equity
 ## System Architecture
 
 graph TD
-    Data[Spatial Data (GeoJSON/CSV)] --> Engine[Data Engine (Python)]
-    Engine --> |Process & Score| DB[(PostgreSQL + PostGIS)]
-    Engine --> |Export| Files[GeoJSON/CSV Outputs]
+    Data [Spatial Data (GeoJSON/CSV)] --> Engine [Data Engine (Python)]
+    Engine --> |Process & Score| DB [(PostgreSQL + PostGIS)]
+    Engine --> |Export| Files [GeoJSON/CSV Outputs]
     
     API[FastAPI Backend] --> |Query| DB
     API --> |Serve| Frontend[Next.js Dashboard]
